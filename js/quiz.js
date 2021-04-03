@@ -1,54 +1,35 @@
 var questions = [
-    ['How many states are in the United States?', 50],
-    ['How many continents are there?', 7],
-    ['How many legs does an insect have?', 6]
+    {
+        question: 'How many states are in the United States?',
+        answer: 50
+    },
+    {
+        question: 'How many continents are there?',
+        answer: 7
+    },
+    {
+        question: 'How many legs does an insect have?',
+        answer: 6
+    }
 ];
 var correctAnswers = 0;
-var icorrectAnswers = 0;
 var question;
 var answer;
 var response;
-var html;
-var correct = [];
-var ras;
-var rasi;
-var incorrect = [];
 
 function print(message) {
-   var outputdiv = document.getElementById('output');
-   outputdiv.innerHTML = message;
+    document.write(message);
 }
 
 for (var i = 0; i < questions.length; i += 1) {
-    question = questions[i][0];
-    answer = questions[i][1];
-    response = parseInt(prompt(question));
+    question = questions[i].question;
+    answer = questions[i].answer;
+    response = prompt(question);
+    response = parseInt(response);
     if (response === answer) {
-        correct[correctAnswers] = questions[i][0];
         correctAnswers += 1;
-    } else {
-        incorrect[icorrectAnswers] = questions[i][0];
-        icorrectAnswers += 1;
     }
 }
 
-html = "You got " + correctAnswers + " question(s) right.<br>";
-print();
-
-ras = "You answer correct for this question: <br>" ;
-correct.forEach(element => ras=ras + element + "<br>");
-print(ras);
-
-rasi = "You answer incorrect for this question: <br>" ;
-incorrect.forEach(element => rasi=rasi + element + "<br>");
-print(html+ras+rasi);
-
-
-
-
-
-
-
-
-
-
+html = "You got " + correctAnswers + " question(s) right."
+print(html);
